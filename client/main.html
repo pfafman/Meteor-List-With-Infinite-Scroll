@@ -1,0 +1,22 @@
+
+<head>
+  <title>Template-Level Subscriptions</title>
+</head>
+
+<body>
+  <div class="posts">
+    {{> posts}}
+  </div>
+</body>
+
+<template name="posts">
+  {{#each posts}}
+    <div class="post">
+      <h3>{{title}} <small>({{user.fullname}})</small></h3>
+      <p>{{body}}</p>
+    </div>
+  {{/each}}
+  {{#unless isReady}}
+    <div class="loading"><i class="fa fa-spinner fa-spin fa-3x"></i></div>
+  {{/unless}}
+</template>
