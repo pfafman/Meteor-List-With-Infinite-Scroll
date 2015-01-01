@@ -10,6 +10,7 @@ Template.posts.created = ->
   $(window).on "scroll", (e) =>
     if $(window).scrollTop() + $(window).height() >= $(document).height()
       if Counts.get('posts') > @limit.get() and @ready.get()
+        toastr.info('Get more posts')
         console.log("Get more posts", @posts().count(), Counts.get('posts'))
         @limit.set(@limit.get() + 5)
 
@@ -42,6 +43,9 @@ Template.posts.destroyed = ->
 
 
 Template.posts.helpers
+  initialLoad: ->
+    Template.instance().loaded.get() is 0
+
   posts: ->
     Template.instance().posts()
 

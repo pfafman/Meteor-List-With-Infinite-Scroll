@@ -10,3 +10,5 @@ reactive-var
 anti:fake
 pfafman:font-awesome-4
 tmeasday:publish-counts
+pcel:loading
+pcel:toastr
